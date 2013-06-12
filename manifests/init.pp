@@ -1,9 +1,11 @@
-class rubybuild {
-  $repo_path         = "git://github.com/sstephenson/ruby-build.git"
-  $install_dir       = "/usr/local"
-  $ruby_version      = "2.0.0-p195"
-  $ruby_install_dir  = "/opt"
-  $required_packages = ["build-essential", "libreadline6-dev", "zlib1g-dev", "libssl-dev"]
+class rubybuild(
+  $repo_path         = "git://github.com/sstephenson/ruby-build.git",
+  $install_dir       = "/usr/local",
+  $ruby_version      = "2.0.0-p195",
+  $ruby_install_dir  = "/opt",
+  $required_packages = ["build-essential", "libreadline6-dev", "zlib1g-dev", "libssl-dev"],
+  $install_ruby      = true
+) {
 
   require git
 
@@ -20,12 +22,14 @@ class rubybuild {
     command => "/tmp/benben-rubybuild/install.sh",
     creates => "${install_dir}/bin/ruby-build",
     user    => "root",
-    before  => Exec["ruby-build install-ruby"],
   }
 
-  exec { "ruby-build install-ruby":
-    command => "${install_dir}/bin/ruby-build ${ruby_version} ${ruby_install_dir}/${ruby_version}",
-    creates => "${ruby_install_dir}/${ruby_version}",
-    timeout => 0,
+  if $install_ruby {
+    exec { "ruby-build install-ruby":
+      command => "${install_dir}/bin/ruby-build ${ruby_version} ${ruby_install_dir}/${ruby_version}",
+      creates => "${ruby_install_dir}/${ruby_version}",
+      timeout => 0,
+      require => Exec["ruby-build install"],
+    }
   }
 }
