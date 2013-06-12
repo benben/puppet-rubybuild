@@ -9,27 +9,29 @@ class rubybuild(
 
   require git
 
-  package {$required_packages: ensure => "installed", before => Exec["ruby-build fetch"] }
+  $ruby_build = "${install_dir}/bin/ruby-build"
 
-  exec { "ruby-build fetch":
+  package {$required_packages: ensure => "installed", before => Exec["rubybuild fetch"] }
+
+  exec { "rubybuild fetch":
     command => "/usr/bin/git clone ${repo_path} /tmp/benben-rubybuild",
     creates => "/tmp/benben-rubybuild",
-    before  => Exec["ruby-build install"],
+    before  => Exec["rubybuild install"],
   }
 
-  exec { "ruby-build install":
+  exec { "rubybuild install":
     cwd     => "/tmp/benben-rubybuild",
     command => "/tmp/benben-rubybuild/install.sh",
-    creates => "${install_dir}/bin/ruby-build",
+    creates => $ruby_build,
     user    => "root",
   }
 
   if $install_ruby {
-    exec { "ruby-build install-ruby":
-      command => "${install_dir}/bin/ruby-build ${ruby_version} ${ruby_install_dir}/${ruby_version}",
+    exec { "rubybuild install-ruby":
+      command => "${ruby_build} ${ruby_version} ${ruby_install_dir}/${ruby_version}",
       creates => "${ruby_install_dir}/${ruby_version}",
       timeout => 0,
-      require => Exec["ruby-build install"],
+      require => Exec["rubybuild install"],
     }
   }
 }
