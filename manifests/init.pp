@@ -17,6 +17,7 @@ class rubybuild(
     command => "/usr/bin/git clone ${repo_path} /tmp/benben-rubybuild",
     creates => "/tmp/benben-rubybuild",
     before  => Exec["rubybuild install"],
+    unless  => "/usr/bin/test -f ${ruby_build}",
   }
 
   exec { "rubybuild install":
