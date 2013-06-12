@@ -31,14 +31,12 @@ cd to your module folder and run
 
 The following config options are possible.
 
-    class { "rubybuild":
-      $repo_path         = "git://github.com/sstephenson/ruby-build.git"
-      $install_dir       = "/usr/local"
-      $ruby_version      = "2.0.0-p195"
-      $ruby_install_dir  = "/opt"
-      $required_packages = ["build-essential", "libreadline6-dev", "zlib1g-dev", "libssl-dev"]
-      $install_ruby      = true
-    }
+    $repo_path         = "git://github.com/sstephenson/ruby-build.git"
+    $install_dir       = "/usr/local"
+    $ruby_version      = "2.0.0-p195"
+    $ruby_install_dir  = "/opt"
+    $required_packages = ["build-essential", "libreadline6-dev", "zlib1g-dev", "libssl-dev"]
+    $install_ruby      = true
 
 If you dont want to change anything, its enough to do
 
