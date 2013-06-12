@@ -1,8 +1,10 @@
 name          'benben-rubybuild'
-version       '0.0.1'
+version       '0.0.2'
 author        'benben'
 license       'MIT'
 summary       'ruby-build standalone'
 project_page  'https://github.com/benben/puppet-rubybuild'
+source        'https://github.com/benben/puppet-rubybuild'
+description   'ruby-build in standalone mode'
 
 dependency 'puppetlabs/git'
