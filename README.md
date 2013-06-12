@@ -3,7 +3,7 @@
 ruby-build standalone as puppet module.
 
 It can be used to install ruby-build (https://github.com/sstephenson/ruby-build)
-and the latest ruby.
+and the latest ruby without rbenv.
 
 ## Installation
 
