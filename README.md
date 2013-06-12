@@ -5,6 +5,8 @@ ruby-build standalone as puppet module.
 It can be used to install ruby-build (https://github.com/sstephenson/ruby-build)
 and the latest ruby without rbenv.
 
+Only tested on Ubuntu 12.04.2 LTS 64bit.
+
 ## Installation
 
 ### with puppet(forge)
