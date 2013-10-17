@@ -31,14 +31,16 @@ cd to your module folder and run
 
 ## Configuration
 
-The following config options are possible.
+The following config options are possible. The values are shown here are the
+default values.
 
-    $repo_path         = "git://github.com/sstephenson/ruby-build.git"
-    $install_dir       = "/usr/local"
-    $ruby_version      = "2.0.0-p247"
-    $ruby_install_dir  = "/opt"
-    $required_packages = ["build-essential", "libreadline6-dev", "zlib1g-dev", "libssl-dev"]
-    $install_ruby      = true
+    $repo_path         = "git://github.com/sstephenson/ruby-build.git" # which git repo to use for cloning ruby-build
+    $install_dir       = "/usr/local" # where ruby-build will be installed
+    $ruby_version      = "2.0.0-p247" # desired ruby version
+    $ruby_install_dir  = "/opt" # where ruby will be installed
+    $version_in_dir    = true, # if true it will install to '$ruby_install_dir/$ruby_version' otherwise '$ruby_install_dir' only
+    $required_packages = ["build-essential", "libreadline6-dev", "zlib1g-dev", "libssl-dev"] # which packages should be installed before compiling ruby
+    $install_ruby      = true # set this to false if you only want to install ruby-build but no ruby
 
 If you dont want to change anything, its enough to do
 
@@ -50,6 +52,10 @@ or
 
 If you only want to install the standalone ruby-build without installing ruby,
 set `$install_ruby` to `false`.
+
+    class { "rubybuild":
+      install_ruby => false,
+    }
 
 ## Contributing
 
