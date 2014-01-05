@@ -67,7 +67,7 @@ set `$install_ruby` to `false`.
 
 ## License
 
-Copyright (c) 2013 Benjamin Knofe
+Copyright (c) 2013 Benjamin Knofe http://benjaminknofe.com
 
 MIT License
 
