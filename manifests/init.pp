@@ -1,7 +1,7 @@
 class rubybuild(
   $repo_path         = "git://github.com/sstephenson/ruby-build.git",
   $install_dir       = "/usr/local",
-  $ruby_version      = "2.0.0-p353",
+  $ruby_version      = "2.1.0",
   $ruby_install_dir  = "/opt",
   $version_in_dir    = true,
   $required_packages = ["build-essential", "libreadline6-dev", "zlib1g-dev", "libssl-dev"],
@@ -12,7 +12,10 @@ class rubybuild(
 
   $ruby_build = "${install_dir}/bin/ruby-build"
 
-  package {$required_packages: ensure => "installed", before => Exec["rubybuild fetch"] }
+  package { $required_packages:
+    ensure => "installed",
+    before => Exec["rubybuild fetch"]
+  }
 
   exec { "rubybuild fetch":
     command => "/usr/bin/git clone ${repo_path} /tmp/benben-rubybuild",

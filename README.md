@@ -36,7 +36,7 @@ default values.
 
     $repo_path         = "git://github.com/sstephenson/ruby-build.git" # which git repo to use for cloning ruby-build
     $install_dir       = "/usr/local" # where ruby-build will be installed
-    $ruby_version      = "2.0.0-p353" # desired ruby version
+    $ruby_version      = "2.1.0" # desired ruby version
     $ruby_install_dir  = "/opt" # where ruby will be installed
     $version_in_dir    = true, # if true it will install to '$ruby_install_dir/$ruby_version' otherwise '$ruby_install_dir' only
     $required_packages = ["build-essential", "libreadline6-dev", "zlib1g-dev", "libssl-dev"] # which packages should be installed before compiling ruby
