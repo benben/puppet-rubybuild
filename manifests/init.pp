@@ -40,7 +40,7 @@ class rubybuild(
 
     exec { "rubybuild install-ruby":
       command => "${ruby_build} ${ruby_version} ${$ruby_install_path}",
-      creates => "${ruby_install_dir}/${ruby_version}",
+      creates => "${ruby_install_path}",
       timeout => 0,
       require => Exec["rubybuild install"],
     }
