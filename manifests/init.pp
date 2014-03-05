@@ -13,9 +13,8 @@ class rubybuild(
   $ruby_build = "${install_dir}/bin/ruby-build"
 
   package { $required_packages:
-    ensure => "installed",
-    before => Exec["rubybuild fetch"]
-  }
+    ensure => "latest",
+  } ->
 
   exec { "rubybuild fetch":
     command => "/usr/bin/git clone ${repo_path} /tmp/benben-rubybuild",
