@@ -11,20 +11,28 @@ class rubybuild(
   require git
 
   $ruby_build = "${install_dir}/bin/ruby-build"
+  $tmp_folder = "/tmp/benben-rubybuild"
 
   package { $required_packages:
     ensure => "latest",
   } ->
 
   exec { "rubybuild fetch":
-    command => "/usr/bin/git clone ${repo_path} /tmp/benben-rubybuild",
+    command => "/usr/bin/git clone ${repo_path} ${tmp_folder}",
     before  => Exec["rubybuild install"],
-    unless  => "/usr/bin/test -f ${ruby_build}",
+    creates => $tmp_folder,
+  } ->
+
+  exec { "rubybuild update":
+    cwd     => $tmp_folder,
+    command => "/usr/bin/git pull",
+    unless  => "${ruby_build} --definitions | grep '^${ruby_version}$'"
   }
 
   exec { "rubybuild install":
-    cwd     => "/tmp/benben-rubybuild",
-    command => "/tmp/benben-rubybuild/install.sh",
+    cwd     => $tmp_folder,
+    command => "${tmp_folder}/install.sh",
+    subscribe => Exec["rubybuild update"],
     creates => $ruby_build,
     user    => "root",
   }
@@ -41,7 +49,7 @@ class rubybuild(
       command => "${ruby_build} ${ruby_version} ${$ruby_install_path}",
       creates => "${ruby_install_dir}/${ruby_version}",
       timeout => 0,
-      require => Exec["rubybuild install"],
+      subscribe => Exec["rubybuild install"],
     }
   }
 }
