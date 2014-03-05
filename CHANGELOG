@@ -4,4 +4,5 @@ Released: 2014-03-05
 
 * add ruby update handling
 * add $ruby_path configuration option to set static ruby path
+* bug #2: check for the correct $ruby_install_path if $version_in_dir is false (thanks https://github.com/krakatoa)
 * add CHANGELOG
