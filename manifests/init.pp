@@ -3,6 +3,7 @@ class rubybuild(
   $install_dir       = "/usr/local",
   $ruby_version      = "2.1.1",
   $ruby_install_dir  = "/opt",
+  $ruby_path         = "/opt/ruby",
   $version_in_dir    = true,
   $required_packages = ["build-essential", "libreadline6-dev", "zlib1g-dev", "libssl-dev"],
   $install_ruby      = true
@@ -51,6 +52,12 @@ class rubybuild(
       creates => "${ruby_install_dir}/${ruby_version}",
       timeout => 0,
       subscribe => Exec["rubybuild install"],
+    } ->
+
+    file { "link ruby path":
+      path   => $ruby_path,
+      ensure => "link",
+      target => $ruby_install_path,
     }
   }
 }
