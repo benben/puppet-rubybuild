@@ -3,4 +3,5 @@
 Released: 2014-03-05
 
 * add ruby update handling
+* add $ruby_path configuration option to set static ruby path
 * add CHANGELOG
