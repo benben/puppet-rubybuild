@@ -57,6 +57,18 @@ set `$install_ruby` to `false`.
       install_ruby => false,
     }
 
+## Update
+
+I will release a new version of this module everytime there is a new Ruby version.
+Simply upgrade this module to get the new Ruby version automatically.
+
+If you want to upgrade without upgrading Ruby, just specify your desired Ruby
+version when you declare the class (see above for configuration options).
+
+If you want to upgrade Ruby without upgrading this module, just specify your
+desired Ruby version when you declare the class. ATTENTION: This will only work
+with versions of this module >0.1.0.
+
 ## Contributing
 
 1. Fork it
