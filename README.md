@@ -67,7 +67,7 @@ version when you declare the class (see above for configuration options).
 
 If you want to upgrade Ruby without upgrading this module, just specify your
 desired Ruby version when you declare the class. ATTENTION: This will only work
-with versions of this module >0.1.0.
+with versions of this module >=0.1.0.
 
 ## Contributing
 
