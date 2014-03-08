@@ -27,8 +27,7 @@ class rubybuild(
   exec { "rubybuild update":
     cwd     => $tmp_folder,
     command => "/usr/bin/git pull",
-    onlyif  => "/usr/bin/test -f ${ruby_build}",
-    unless  => "${ruby_build} --definitions | grep '^${ruby_version}$'",
+    unless  => "/usr/bin/test -f ${ruby_build} && ${ruby_build} --definitions | grep '^${ruby_version}$'",
   }
 
   exec { "rubybuild install":
