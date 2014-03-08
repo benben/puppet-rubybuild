@@ -31,11 +31,11 @@ class rubybuild(
   }
 
   exec { "rubybuild install":
-    cwd     => $tmp_folder,
-    command => "${tmp_folder}/install.sh",
+    cwd       => $tmp_folder,
+    command   => "/bin/rm -rf ${install_dir}/share/ruby-build/ ${install_dir}/bin/ruby-build ${install_dir}/bin/rbenv-install ${install_dir}/bin/rbenv-uninstall && ${tmp_folder}/install.sh",
     subscribe => Exec["rubybuild update"],
-    creates => $ruby_build,
-    user    => "root",
+    creates   => $ruby_build,
+    user      => "root",
   }
 
   if $install_ruby {
