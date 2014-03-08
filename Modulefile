@@ -1,5 +1,5 @@
 name          'benben-rubybuild'
-version       '0.1.0'
+version       '0.1.1'
 author        'benben'
 license       'MIT'
 summary       'ruby-build standalone'

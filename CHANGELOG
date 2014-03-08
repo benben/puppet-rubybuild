@@ -1,3 +1,10 @@
+# 0.1.1
+
+Released: 2014-03-08
+
+* bug: install: remove old ruby-build files and folders before installing
+* bug: update: more robust checking if rubybuild is there and up to date
+
 # 0.1.0
 
 Released: 2014-03-05
