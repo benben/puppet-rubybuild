@@ -7,4 +7,4 @@ project_page  'https://github.com/benben/puppet-rubybuild'
 source        'https://github.com/benben/puppet-rubybuild'
 description   'ruby-build in standalone mode'
 
-dependency 'puppetlabs/git'
+dependency 'puppetlabs/git', '>= 0.0.3'
