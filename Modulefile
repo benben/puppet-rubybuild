@@ -1,10 +1,10 @@
 name          'benben-rubybuild'
 version       '0.1.2'
-author        'benben'
+author        'Benjamin Knofe'
 license       'MIT'
 summary       'ruby-build standalone (install ruby without rbenv)'
 project_page  'https://github.com/benben/puppet-rubybuild'
 source        'https://github.com/benben/puppet-rubybuild'
-description   'ruby-build in standalone mode'
+description   'ruby-build in standalone mode so you dont need rbenv but can easily install all ruby versions you want'
 
 dependency 'puppetlabs/git', '>= 0.0.3'
