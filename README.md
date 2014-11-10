@@ -40,7 +40,7 @@ default values.
     $ruby_install_dir  = "/opt" # where ruby will be installed
     $ruby_path         = "/opt/ruby" #where the current ruby will be linked to, so you can point all your stuff to this and always have the right version
     $version_in_dir    = true, # if true it will install to '$ruby_install_dir/$ruby_version' otherwise '$ruby_install_dir' only
-    $required_packages = ["build-essential", "libreadline6-dev", "zlib1g-dev", "libssl-dev"] # which packages should be installed before compiling ruby
+    $required_packages = ["libreadline6-dev", "zlib1g-dev", "libssl-dev"] # which packages should be installed before compiling ruby
     $install_ruby      = true # set this to false if you only want to install ruby-build but no ruby
 
 If you dont want to change anything, its enough to do
