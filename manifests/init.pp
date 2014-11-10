@@ -1,7 +1,7 @@
 class rubybuild(
   $repo_path         = "git://github.com/sstephenson/ruby-build.git",
   $install_dir       = "/usr/local",
-  $ruby_version      = "2.1.2",
+  $ruby_version      = "2.1.3",
   $ruby_install_dir  = "/opt",
   $ruby_path         = "/opt/ruby",
   $version_in_dir    = true,
