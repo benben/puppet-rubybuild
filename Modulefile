@@ -8,3 +8,4 @@ source        'https://github.com/benben/puppet-rubybuild'
 description   'ruby-build in standalone mode so you dont need rbenv but can easily install all ruby versions you want'
 
 dependency 'puppetlabs/git', '>= 0.0.3'
+dependency 'puppetlabs/gcc'
