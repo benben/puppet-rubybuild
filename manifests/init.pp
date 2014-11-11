@@ -35,9 +35,8 @@ class rubybuild(
   exec { "rubybuild install":
     cwd       => $tmp_folder,
     command   => "/bin/rm -rf ${install_dir}/share/ruby-build/ ${install_dir}/bin/ruby-build ${install_dir}/bin/rbenv-install ${install_dir}/bin/rbenv-uninstall && ${tmp_folder}/install.sh",
-    subscribe => Exec["rubybuild update"],
-    require   => Class["gcc"],
-    creates   => $ruby_build,
+    require   => [Class["gcc"], Exec["rubybuild update"]],
+    unless    => "/usr/bin/test -f ${ruby_build} && ${ruby_build} --definitions | grep '^${ruby_version}$'",
     user      => "root",
   }
 
@@ -53,7 +52,7 @@ class rubybuild(
       command => "${ruby_build} ${ruby_version} ${$ruby_install_path}",
       creates => "${ruby_install_path}",
       timeout => 0,
-      subscribe => Exec["rubybuild install"],
+      require => Exec["rubybuild install"],
     } ->
 
     file { "link ruby path":
