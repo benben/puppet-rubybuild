@@ -1,6 +1,6 @@
 {
   "name": "benben-rubybuild",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Benjamin Knofe",
   "summary": "ruby-build standalone (install ruby without rbenv)",
   "license": "MIT",

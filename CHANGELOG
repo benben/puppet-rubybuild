@@ -1,3 +1,9 @@
+# 0.1.4
+
+Released: 2014-11-11
+
+* bug: fix fetching ruby-build when updating from already installed module
+
 # 0.1.3
 
 Released: 2014-11-10
